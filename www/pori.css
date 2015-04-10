@@ -1,0 +1,64 @@
+body {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    color: #9F8EE0;
+}
+
+.gameboard {
+    margin: 50px;
+    box-shadow: 5px 5px 5px 5px #9C9FD3;
+    width: 612px;
+    font-size: 0;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: table-cell;
+    border: 1px solid cornflowerblue;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 9px;
+    position: relative;
+}
+
+.mob-name {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+}
+
+.mob-reward {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+}
+
+.external-cell {
+    width: 100px;
+    height: 100px;
+    display: table-cell;
+    border: 1px solid cornflowerblue;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 9px;
+    position: relative;
+    box-shadow: 5px 5px 5px 5px #9C9FD3;
+}
+
+.external-cell-container {
+    margin: 50px;
+}
+
+.reward {
+    display: table-cell;
+    margin: 100px;
+}

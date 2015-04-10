@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pori-pori Game</title>
+    <script src="components/angular/angular.js"></script>
+    <script src="pori/app.js"></script>
+    <link rel="stylesheet" href="pori.css"/>
+</head>
+
+<body ng-app="app" ng-controller="MainCtrl">
+<div class="game">
+    <h1>Pori-pori Game - is a classic game 3 in row</h1>
+    <p>You must compound porings for rewards.</p>
+    <div class="gameboard">
+        <div class="row" ng-repeat="(i, row) in cells">
+            <div class="cell" ng-repeat="(j, cell) in row" ng-click="click(i, j)">
+                <div ng-if="cell.item">
+                    <img ng-src="{{cell.item.sprite}}" />
+                    <span class="mob-name" ng-bind="cell.item.name"></span>
+                    <span class="mob-reward" ng-bind="cell.item.reward"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="external-cell-container">
+        <div class="external-cell">
+            <div ng-if="externalCell.item">
+                <img ng-src="{{externalCell.item.sprite}}" />
+                <span class="mob-name" ng-bind="externalCell.item.name"></span>
+                <span class="mob-reward" ng-bind="externalCell.item.reward"></span>
+            </div>
+        </div>
+        <p class="reward">You revard is <span ng-bind="reward"></span></p>
+    </div>
+</div>
+
+
+</body>
+</html>
