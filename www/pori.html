@@ -10,7 +10,7 @@
 
 <body ng-app="app" ng-controller="MainCtrl">
 <div class="game">
-    <h1>Pori-pori Game - is a classic game 3 in row</h1>
+    <h1>Pori-pori Game - is a classic game 3-in-row</h1>
     <p>You must compound porings for rewards.</p>
     <div class="gameboard">
         <div class="row" ng-repeat="(i, row) in cells">
@@ -31,7 +31,9 @@
                 <span class="mob-reward" ng-bind="externalCell.item.reward"></span>
             </div>
         </div>
-        <p class="reward">You revard is <span ng-bind="reward"></span></p>
+        <div class="reward">
+        <p>You reward is <span class="reward-value" ng-bind="player.reward"></span> Zeny!</p>
+        </div>
     </div>
 </div>
 

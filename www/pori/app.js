@@ -108,8 +108,28 @@ angular.module('app', [])
 
     $scope.click = click;
 
+    var player = $scope.player = {
+      reward: 0
+    };
+
     function getRandomPoring() {
-      return items[Math.floor(Math.random()*items.length)];
+      var num = Math.floor(Math.random()*11);
+      var firstClass = items.filter(function(item){
+        return item.reward === 5
+      });
+      var secondClass = items.filter(function(item){
+        return item.reward === 10
+      });
+      var thirdClass = items.filter(function(item){
+        return item.reward === 100
+      });
+      if (num < 2) {
+        return thirdClass[Math.floor(Math.random()*thirdClass.length)];
+      } else if (num >= 2 && num < 5) {
+        return secondClass[Math.floor(Math.random()*secondClass.length)];
+      } else {
+        return firstClass[Math.floor(Math.random()*firstClass.length)];
+      }
     }
 
     function getRandomCell() {
@@ -146,7 +166,7 @@ angular.module('app', [])
         return;
       }
       cell.item = poring;
-      checkGroups(row, col, poring.id);
+      while(checkGroups(row, col, poring.id)) {}
       nextPoring();
     }
 
@@ -174,7 +194,7 @@ angular.module('app', [])
         [getCell(row, col), getCell(row, col - 1), getCell(row - 1, col - 1)],
         [getCell(row, col), getCell(row - 1, col), getCell(row, col + 1)],
         [getCell(row, col), getCell(row + 1, col), getCell(row + 1, col + 1)],
-        [getCell(row, col), getCell(row, col + 1), getCell(row + 1, col + 1)],
+        [getCell(row, col), getCell(row, col + 1), getCell(row - 1, col + 1)],
         [getCell(row, col), getCell(row, col - 1), getCell(row - 1, col)],
         [getCell(row, col), getCell(row + 1, col - 1), getCell(row + 1, col)]
       ];
@@ -189,6 +209,7 @@ angular.module('app', [])
         cell.remove = false;
         cell.evolve = true;
         postCheck();
+        return true;
       }
     }
 
@@ -196,9 +217,11 @@ angular.module('app', [])
       cells.forEach(function(row) {
         row.forEach(function(cell){
           if (cell.remove) {
+            player.reward += cell.item.reward;
             cell.item = null;
           } else if (cell.evolve) {
             var id = cell.item.evolve;
+            player.reward += cell.item.reward;
             cell.item = itemById[id];
           }
           cell.remove = false;
@@ -220,6 +243,5 @@ angular.module('app', [])
       });
       return true;
     }
-
 
   });

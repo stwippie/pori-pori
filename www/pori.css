@@ -6,6 +6,10 @@ h1 {
     color: #9F8EE0;
 }
 
+.game {
+
+}
+
 .gameboard {
     margin: 50px;
     box-shadow: 5px 5px 5px 5px #9C9FD3;
@@ -60,5 +64,13 @@ h1 {
 
 .reward {
     display: table-cell;
-    margin: 100px;
+    padding-left: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 25px;
+    font-family: fantasy;
+}
+
+.reward-value {
+    color: darkcyan;
 }
