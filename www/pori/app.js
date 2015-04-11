@@ -36,53 +36,53 @@ angular.module('app', [])
       {
         name: 'Stapo',
         id: 'stapo',
-        reward: 10,
+        reward: 15,
         sprite: 'images/stapo.gif',
         evolve: 'magmaring'
       },
       {
         name: 'Metalling',
         id: 'metalling',
-        reward: 10,
+        reward: 15,
         sprite: 'images/metalling.gif',
         evolve: 'heavymetalling'
       },
       {
         name: 'Angeling',
         id: 'angeling',
-        reward: 10,
+        reward: 15,
         sprite: 'images/angeling.gif',
         evolve: 'arcangeling'
       },
       {
         name: 'Deviling',
         id: 'deviling',
-        reward: 10,
+        reward: 15,
         sprite: 'images/deviling.gif',
         evolve: 'ghostring'
       },
       {
         name: 'Magmaring',
         id: 'magmaring',
-        reward: 100,
+        reward: 45,
         sprite: 'images/magmaring.gif'
       },
       {
         name: 'Heavy Metalling',
         id: 'heavymetalling',
-        reward: 100,
+        reward: 45,
         sprite: 'images/heavymetalling.gif'
       },
       {
         name: 'Arc Angeling',
         id: 'arcangeling',
-        reward: 100,
+        reward: 45,
         sprite: 'images/arcangeling.gif'
       },
       {
         name: 'Ghostring',
         id: 'ghostring',
-        reward: 100,
+        reward: 45,
         sprite: 'images/ghostring.gif'
       }
     ];
@@ -113,19 +113,19 @@ angular.module('app', [])
     };
 
     function getRandomPoring() {
-      var num = Math.floor(Math.random()*11);
+      var num = Math.floor(Math.random()*101);
       var firstClass = items.filter(function(item){
         return item.reward === 5
       });
       var secondClass = items.filter(function(item){
-        return item.reward === 10
+        return item.reward === 15
       });
       var thirdClass = items.filter(function(item){
-        return item.reward === 100
+        return item.reward === 45
       });
-      if (num < 2) {
+      if (num === 0) {
         return thirdClass[Math.floor(Math.random()*thirdClass.length)];
-      } else if (num >= 2 && num < 5) {
+      } else if (num > 0 && num < 10) {
         return secondClass[Math.floor(Math.random()*secondClass.length)];
       } else {
         return firstClass[Math.floor(Math.random()*firstClass.length)];
@@ -160,13 +160,12 @@ angular.module('app', [])
     nextPoring();
 
     function click(row, col) {
-      console.log(row, col);
       var cell = cells[row][col];
       if (cell.item) {
         return;
       }
       cell.item = poring;
-      while(checkGroups(row, col, poring.id)) {}
+      while(cell.item && checkGroups(row, col, cell.item.id)) {}
       nextPoring();
     }
 
