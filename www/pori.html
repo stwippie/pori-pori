@@ -10,17 +10,20 @@
 
 <body ng-app="app" ng-controller="MainCtrl">
 <div class="game">
-    <h1>Pori-pori Game - is a classic game 3-in-row</h1>
-    <p>You must compound porings for rewards.</p>
+    <h1>Pori-pori - is a classic 3-in-row game</h1>
     <div class="gameboard">
         <div class="row" ng-repeat="(i, row) in cells">
             <div class="cell" ng-repeat="(j, cell) in row" ng-click="click(i, j)">
                 <div ng-if="cell.item">
                     <img ng-src="{{cell.item.sprite}}" />
                     <span class="mob-name" ng-bind="cell.item.name"></span>
-                    <span class="mob-reward" ng-bind="cell.item.reward"></span>
+                    <span class="mob-reward" ng-bind="cell.item.reward + ' z'"></span>
                 </div>
             </div>
+        </div>
+        <div class="gameboard-overlay" ng-if="gameOver">
+            <span>GAME OVER!</span>
+            <div class="new-game-button" ng-click="playAgain()">Play Again</div>
         </div>
     </div>
     <div class="external-cell-container">
@@ -35,6 +38,15 @@
         <p>You reward is <span class="reward-value" ng-bind="player.reward"></span> Zeny!</p>
         </div>
     </div>
+    <p class="info">
+        The purpose of the game is to collect as many zeny as you can before gameboard is fulfilled.
+        <br/>
+        The bottom cell contains a random poring. Click any empty cell to place this poring there.
+        <br/>
+        Combine 3 or more porings to evolve them into one next-generation poring ang collect reward for each disappeared poring.
+        <br/>
+        If there is no next-generation poring then no new poring will appear.
+    </p>
 </div>
 
 

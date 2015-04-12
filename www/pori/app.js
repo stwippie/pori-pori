@@ -4,6 +4,7 @@
 angular.module('app', [])
 
   .controller('MainCtrl', function($scope) {
+    const NUMOFPORINGS = 4;
     var items = $scope.items = [
       {
         name: 'Poring',
@@ -93,14 +94,7 @@ angular.module('app', [])
       itemById[item.id] = item;
     });
 
-    var cells = $scope.cells = [
-      [{}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}]
-    ];
+    var cells = $scope.cells = [];
 
     var externalCell = $scope.externalCell = {};
 
@@ -111,6 +105,10 @@ angular.module('app', [])
     var player = $scope.player = {
       reward: 0
     };
+
+    $scope.playAgain = playAgain;
+
+    $scope.gameOver = false;
 
     function getRandomPoring() {
       var num = Math.floor(Math.random()*101);
@@ -137,6 +135,14 @@ angular.module('app', [])
     }
 
     function fillCells(poringLeft) {
+      cells = $scope.cells = [
+        [{}, {}, {}, {}, {}, {}],
+        [{}, {}, {}, {}, {}, {}],
+        [{}, {}, {}, {}, {}, {}],
+        [{}, {}, {}, {}, {}, {}],
+        [{}, {}, {}, {}, {}, {}],
+        [{}, {}, {}, {}, {}, {}]
+      ];
       while (poringLeft) {
         var cell = getRandomCell();
         if (!cell.item) {
@@ -146,7 +152,7 @@ angular.module('app', [])
       }
     }
 
-    fillCells(4);
+    fillCells(NUMOFPORINGS);
 
     function fillExternalCell() {
       externalCell.item = poring;
@@ -167,6 +173,7 @@ angular.module('app', [])
       cell.item = poring;
       while(cell.item && checkGroups(row, col, cell.item.id)) {}
       nextPoring();
+      isGameOver();
     }
 
     function getCell(row, col) {
@@ -241,6 +248,25 @@ angular.module('app', [])
         cell.remove = true;
       });
       return true;
+    }
+
+    function isGameOver() {
+      var flag = true;
+      cells.forEach(function(row) {
+        row.forEach(function(cell){
+          if (!cell.item) {
+            flag = false;
+          }
+        })
+      });
+      if(flag) {
+        $scope.gameOver = true;
+      }
+    }
+
+    function playAgain() {
+      fillCells(NUMOFPORINGS);
+      $scope.gameOver = false;
     }
 
   });

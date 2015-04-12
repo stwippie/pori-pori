@@ -4,18 +4,49 @@ body {
 
 h1 {
     color: #9F8EE0;
+    font-family: fantasy;
+}
+
+.info {
+    margin-left: 20px;
+    font-family: fantasy;
+    font-size: 25px;
 }
 
 .game {
-
+    margin: 0 auto;
+    width: 650px;
 }
 
 .gameboard {
-    margin: 50px;
     box-shadow: 5px 5px 5px 5px #9C9FD3;
     width: 612px;
     font-size: 0;
+    position: relative;
 }
+
+.gameboard-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .5);
+    font-family: fantasy;
+    font-size: 60px;
+    text-align: center;
+    line-height: 612px;
+}
+
+.new-game-button {
+    position: absolute;
+    width: 612px;
+    top: 200px;
+    font-size: 40px;
+    text-decoration: underline;
+    color: rgba(147, 52, 153, 1);
+}
+
 
 .cell {
     width: 100px;
@@ -59,7 +90,7 @@ h1 {
 }
 
 .external-cell-container {
-    margin: 50px;
+    margin-top: 50px;
 }
 
 .reward {
