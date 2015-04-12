@@ -5,12 +5,16 @@ body {
 h1 {
     color: #9F8EE0;
     font-family: fantasy;
+    font-size: 20px;
+    position: relative;
+    left: 100px;
+
 }
 
 .info {
     margin-left: 20px;
     font-family: fantasy;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .game {
@@ -20,7 +24,7 @@ h1 {
 
 .gameboard {
     box-shadow: 5px 5px 5px 5px #9C9FD3;
-    width: 612px;
+    width: 528px;
     font-size: 0;
     position: relative;
 }
@@ -35,12 +39,12 @@ h1 {
     font-family: fantasy;
     font-size: 60px;
     text-align: center;
-    line-height: 612px;
+    line-height: 528px;
 }
 
 .new-game-button {
     position: absolute;
-    width: 612px;
+    width: 528px;
     top: 200px;
     font-size: 40px;
     text-decoration: underline;
@@ -49,8 +53,8 @@ h1 {
 
 
 .cell {
-    width: 100px;
-    height: 100px;
+    width: 86px;
+    height: 86px;
     display: table-cell;
     border: 1px solid cornflowerblue;
     margin: 0;
@@ -76,8 +80,8 @@ h1 {
 }
 
 .external-cell {
-    width: 100px;
-    height: 100px;
+    width: 86px;
+    height: 86px;
     display: table-cell;
     border: 1px solid cornflowerblue;
     padding: 0;
@@ -90,7 +94,7 @@ h1 {
 }
 
 .external-cell-container {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .reward {
