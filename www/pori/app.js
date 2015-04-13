@@ -4,7 +4,7 @@
 angular.module('app', [])
 
   .controller('MainCtrl', function($scope) {
-    const NUMOFPORINGS = 4;
+    const NUMOFPORINGS = 35;
     var items = $scope.items = [
       {
         name: 'Poring',

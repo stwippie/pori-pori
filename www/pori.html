@@ -5,7 +5,9 @@
     <title>Pori-pori Game</title>
     <script src="components/angular/angular.js"></script>
     <script src="pori/app.js"></script>
+    <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
     <link rel="stylesheet" href="pori.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body ng-app="app" ng-controller="MainCtrl">
@@ -23,6 +25,22 @@
         </div>
         <div class="gameboard-overlay" ng-if="gameOver">
             <span>GAME OVER!</span>
+            <div class="social-buttons">
+                <span>Share your score with social network!</span>
+                <div>
+                    <script>
+                        document.write(VK.Share.button({
+                                    description: 'I earned some Zeny in Pori-Pori Game!',
+                                    image: 'http://stwippie.com/images/social-image.jpg',
+                                    url: 'http://stwippie.com',
+                                    noparse: true},
+                                {type: 'custom', text: '<span><i class="fa fa-vk fa-2x"></i></span>'}));
+                    </script>
+                    <span><i class="fa fa-facebook fa-2x"></i></span>
+                    <span><i class="fa fa-twitter fa-2x"></i></span>
+                    <span><i class="fa fa-google-plus fa-2x"></i></span>
+                </div>
+            </div>
             <div class="new-game-button" ng-click="playAgain()">Play Again</div>
         </div>
     </div>
@@ -48,7 +66,5 @@
         If there is no next-generation poring then no new poring will appear.
     </p>
 </div>
-
-
 </body>
 </html>
