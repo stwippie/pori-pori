@@ -4,7 +4,7 @@
 angular.module('app', [])
 
   .controller('MainCtrl', function($scope) {
-    const NUMOFPORINGS = 35;
+    const NUMOFPORINGS = 4;
     var items = $scope.items = [
       {
         name: 'Poring',
@@ -150,6 +150,7 @@ angular.module('app', [])
           poringLeft--;
         }
       }
+      player.reward = 0;
     }
 
     fillCells(NUMOFPORINGS);

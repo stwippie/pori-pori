@@ -50,6 +50,7 @@ h1 {
     text-decoration: underline;
     color: rgba(147, 52, 153, 1);
     line-height: normal;
+    cursor: pointer;
 
 }
 
