@@ -8,6 +8,7 @@
     <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
     <link rel="stylesheet" href="pori.css"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Neucha&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter29700800 = new Ya.Metrika({id:29700800, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/29700800" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
@@ -47,7 +48,9 @@
             <div class="new-game-button" ng-click="playAgain()">Play Again</div>
         </div>
     </div>
-    <div class="external-cell-container">
+    <div class="sidebar">
+        <div class="next-poring-label">Next poring is:</div>
+        <div class="external-cell-container">
         <div class="external-cell">
             <div ng-if="externalCell.item">
                 <img ng-src="{{externalCell.item.sprite}}" />
@@ -55,11 +58,27 @@
                 <span class="mob-reward" ng-bind="externalCell.item.reward + ' z'"></span>
             </div>
         </div>
-        <div class="reward">
-        <p>Your reward is <span class="reward-value" ng-bind="player.reward"></span> Zeny!</p>
         </div>
+        <div class="reward">
+            <p>Your reward is <span class="reward-value" ng-bind="player.reward"></span> Zeny!</p>
+        </div>
+        <p class="info">
+            Цель игры набрать наибольшее количество очков - Zeny до того как на поле не останется ни одной свободной клетки.
+            <br/>
+            Чтобы очищать клетки нужно собирать группы из 3х или более порингов (клетки должны соприкасаться по сторонам).
+            В отдельной клетке располагается поринг который следующим попадет на доску при нажатии на клетку.
+            Чтобы собрать группу нужно нажимать пустую клетку рядом с таким же порингом.
+            <br/>
+            Группа порингов с наградой в 5z превращаются в одного 15z, а те в свою очередь в поринга в 45z.
+            Превращение происходит в той клеке куда попал завершающий группу поринг.
+            Группа порингов с наградой 45z полностью исчезает с доски.
+            <br/>
+            <br/>
+            <span>ТАБЛИЦА ПРЕВРАЩЕНИЙ</span>
+            <img src="images/evolve-map.png">
+        </p>
     </div>
-    <p class="info">
+<!--    <p class="info">
         The purpose of the game is to collect as many zeny as you can before gameboard is fulfilled.
         <br/>
         The bottom cell contains a random poring. Click any empty cell to place this poring there.
@@ -67,7 +86,8 @@
         Combine 3 or more porings to evolve them into one next-generation poring ang collect reward for each disappeared poring.
         <br/>
         If there is no next-generation poring then no new poring will appear.
-    </p>
+    </p>-->
+
 </div>
 </body>
 </html>

@@ -1,25 +1,21 @@
 body {
-
+    font-family: fantasy;
 }
 
 h1 {
     color: #9F8EE0;
     font-family: fantasy;
     font-size: 20px;
-    position: relative;
-    left: 100px;
-
 }
 
 .info {
-    margin-left: 20px;
-    font-family: fantasy;
-    font-size: 15px;
+    font-family: fantasy, 'Neucha';
+    font-size: 14px;
 }
 
 .game {
     margin: 0 auto;
-    width: 650px;
+    width: 800px;
 }
 
 .gameboard {
@@ -27,6 +23,7 @@ h1 {
     width: 528px;
     font-size: 0;
     position: relative;
+    float: right;
 }
 
 .gameboard-overlay {
@@ -93,7 +90,7 @@ h1 {
     overflow: hidden;
     text-align: center;
     vertical-align: middle;
-    font-size: 9px;
+    font-size: 11px;
     position: relative;
 }
 
@@ -119,22 +116,32 @@ h1 {
     overflow: hidden;
     text-align: center;
     vertical-align: middle;
-    font-size: 9px;
+    font-size: 11px;
     position: relative;
     box-shadow: 5px 5px 5px 5px #9C9FD3;
 }
 
 .external-cell-container {
-    margin-top: 20px;
+    width: 86px;
+    margin: 0 auto;
+}
+
+.next-poring-label {
+    text-align: center;
+}
+
+.sidebar {
+    width: 250px;
+    height: auto;
+    float: left;
 }
 
 .reward {
-    display: table-cell;
-    padding-left: 20px;
     text-align: center;
     vertical-align: middle;
-    font-size: 25px;
+    font-size: 20px;
     font-family: fantasy;
+    clear: both;
 }
 
 .reward-value {
